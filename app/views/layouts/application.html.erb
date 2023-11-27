@@ -6,11 +6,29 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <!--CDN Tailwind-->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+    </style>
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
+
+    <header class="absolute inset-x-0 top-0 z-50">
+      <%= render 'layouts/navbar' %>
+    </header>
+    <!-- -->
     <%= yield %>
+
+  
+
   </body>
 </html>
