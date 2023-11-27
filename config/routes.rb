@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-table_user
+
 
   devise_for :users
 
