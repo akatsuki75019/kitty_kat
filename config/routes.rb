@@ -1,17 +1,14 @@
 Rails.application.routes.draw do
-  get 'cart_items/create'
-  get 'cart_items/update'
-  get 'cart_items/destroy'
-  get 'carts/show'
-  get 'carts/create'
-  get 'carts/update'
-  get 'carts/destroy'
+
 
   devise_for :users
 
 
   root 'items#index'
   resources :items
+  resources :carts, only: [:create, :show, :update, :destroy]
+  resources :cart_items, only: [:create, :show, :update, :destroy]
+
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
