@@ -2,18 +2,20 @@
   <div class="gap-20 flex flex-wrap justify-start items-start">
       <div class="w-[570px] flex-col inline-flex">
           <!-- ... Image du chat ... -->
-          <img class="w-fit h-fit object-cover mt-8" src="https://helios-i.mashable.com/imagery/articles/05bWohHVcmI4wy8gnlR3oBo/hero-image.fill.size_1200x900.v1623363665.png" />
+          <img class="object-cover mt-8" src="https://cdn.britannica.com/25/172925-050-DC7E2298/black-cat-back.jpg" />
 
       </div>
       <div class="w-[456px] flex-col inline-flex mt-8">
-          <div class="h-56 flex-col">
+          <div class = "mb-6">
+          <%= render 'items/navcrub' %>
+          </div>
+          <div class="h-40 flex-col">
               <!-- ... Informations ... -->
               <h1 class = "font-bold text-xl""> <strong> <%= item.title %>  </strong></h1>
               <p><%= item.description%><p>
           </div>
           <div class="h-auto flex-col"> 
-            <h2></strong><%= item.price %>¥</strong></h2>
-            <p > test</p><p> test</p>
+            <div class ="text-lg"> <strong> <%= item.price %> ¥ </strong></div>
           </div>
           <!-- ...  ... -->
               <!-- ... PANIER ACHAT ... -->
@@ -60,15 +62,19 @@
     <div class="h-auto px-40 bg-white flex-col justify-start items-center gap-2 flex">
       <div class="gap-8 inline-flex">
           <div class="w-[196px] pr-4 flex-col gap-6 inline-flex">
-              <p class = "font-bold" >Description<p>
+              <p class = "font-bold text-lg border-gray-900 border-b max-w-max" >Description<p>
           </div>
-          <div class="w-[880px] text-gray-700 text-lg font-normal leading-[30px]">
+          <div class="w-[880px] text-gray-700 font-normal ">
               <!-- ... Texte ... -->
               <p><%= item.description%><p>
-              <div class="mb-8flex-col gap-3 ">
-                <div class = "font-bold border-gray-900 border-b max-w-max"> information </div>
+              <div class="mb-8flex-col gap-3 text-base mt-6">
+                <div class = "font-bold mb-4"> information </div>
                   <ul>
                     <li> race : Main coon<li>
+                    <li> habitat : interieur<li>
+                    <li> sexe : Male<li>
+                    <li> localisation : France<li>
+                  <ul>
               </div>
           </div>
       </div>
