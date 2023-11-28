@@ -1,12 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+<!--Jumbotron / hero section-->
+<section class="">
+  <%= render 'hero' %>
+</section>
+
+<section class="">
+  <%= render 'categories' %>
+</section>
 
 <div id="items">
   <% @items.each do |item| %>
