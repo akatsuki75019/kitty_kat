@@ -3,14 +3,15 @@ class Cart < ApplicationRecord
   has_many :cart_items, dependent: :nullify
   has_many :items, through: :cart_items
 
-
   def add_item(item)
-    #vérifie si un CartItem existant existe pour l'article spécifié dans le panier. Si tel est le cas, elle incrémente simplement la quantité. 
-    #Sinon, elle crée un nouvel enregistrement CartItem pour cet article dans le panier.
-    cart_item = cart_items.find_or_initialize_by(item: item)
-    cart_item.quantity += 1
-    cart_item.save
+    # Vérifie si un CartItem existant existe pour l'article spécifié dans le panier.
+    cart_item = cart_items.find_by(item: item)
+
+    unless cart_item
+      # Si l'article n'existe pas dans le panier, créez un nouvel enregistrement CartItem.
+      cart_item = cart_items.create(item: item)
+    end
+
+    cart_item
   end
-
-
 end
