@@ -57,6 +57,12 @@ class ItemsController < ApplicationController
     end
   end
 
+  def add_to_cart
+    item=item.find(params[:id])
+    current_user.add_item(item)
+    render json: { message: "Item ajouté au panier avec succès" }
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item
@@ -67,4 +73,6 @@ class ItemsController < ApplicationController
     def item_params
       params.require(:item).permit(:title, :description, :price, :image_url)
     end
+
+
 end
