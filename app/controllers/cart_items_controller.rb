@@ -1,18 +1,15 @@
 class CartItemsController < ApplicationController
   before_action :authenticate_user!
 
-
   def create
-    puts "*********"
-    puts "Params: #{params.inspect}" 
-    puts "*********"
+
     item = Item.find(params.fetch(:item_id, nil))
     result = current_user.cart.add_item(item)
 
     if result.is_a?(CartItem) 
       redirect_to items_path, notice: "Item ajouté au panier avec succès"
     else
-      redirect_to items_path, alert: result
+      redirect_to items_path, notice: "Erreur : l'item dejà présent dans le panier"
     end
   end
 
