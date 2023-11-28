@@ -2,12 +2,6 @@ class CartItemsController < ApplicationController
   before_action :authenticate_user!
 
 
-  # def create
-  #   item = Item.find(params[:item_id])
-  #   current_user.cart.add_item(item)
-  #   redirect_to items_path, notice: "Item ajouté au panier avec succès"
-  # end
-
   def create
     puts "*********"
     puts "Params: #{params.inspect}" 
@@ -15,7 +9,7 @@ class CartItemsController < ApplicationController
     item = Item.find(params.fetch(:item_id, nil))
     result = current_user.cart.add_item(item)
 
-    if result.is_a?(CartItem)
+    if result.is_a?(CartItem) 
       redirect_to items_path, notice: "Item ajouté au panier avec succès"
     else
       redirect_to items_path, alert: result
