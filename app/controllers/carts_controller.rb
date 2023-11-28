@@ -1,7 +1,8 @@
-class CartsController < ApplicationController`
-  before_action :only_current_cart
-  `
+class CartsController < ApplicationController
+
+  
   def show
+    @cart_items = current_user.cart.cart_items.includes(:item)
   end
 
   def create
