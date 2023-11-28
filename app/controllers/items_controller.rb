@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   # GET /items or /items.json
   def index
     @items = Item.all
+   # @cart_items = CartItems.new
   end
 
   # GET /items/1 or /items/1.json
@@ -58,9 +59,9 @@ class ItemsController < ApplicationController
   end
 
   def add_to_cart
-    item=item.find(params[:id])
-    current_user.add_item(item)
-    render json: { message: "Item ajouté au panier avec succès" }
+    @item=Item.find(params[:id])
+    current_user.add_item(@item)
+    redirect_to items_path, notice: "Item ajouté au panier avec succès"
   end
 
   private

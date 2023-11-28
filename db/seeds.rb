@@ -21,6 +21,7 @@ image_files = Dir.glob(Rails.root.join('app', 'assets', 'images', '*'))
 
 image_files.each do |image_path|
   title = File.basename(image_path, '.*')
+
   Image.create!(
     title: title,
     image: File.open(image_path)
