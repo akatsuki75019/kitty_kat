@@ -1,7 +1,7 @@
 class CheckoutController < ApplicationController
   def create
     @total = params[:total].to_d
-    @event_id = params[:event_id]
+    @item_id = params[:item_id]
     @user_id = params[:user_id]
     @session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
@@ -18,7 +18,7 @@ class CheckoutController < ApplicationController
         },
       ],
       metadata: {
-        event_id: @item_id,
+        item_id: @item_id,
         user_id: @user_id
       },
       mode: 'payment',
@@ -31,6 +31,9 @@ class CheckoutController < ApplicationController
   end
 
   def success
+    puts  "$$$$$$$$$$$$$$$$$$"
+    puts @session.inspect
+    puts  "$$$$$$$$$$$$$$$$$$$$$"
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
     @item_id = @session.metadata.item_id 
