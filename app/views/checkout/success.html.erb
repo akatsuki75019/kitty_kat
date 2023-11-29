@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Thanks for your order!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   <div class="container text-center my-5"> <h1>Succès</h1> 
+ <p>Nous avons bien reçu votre paiement de <%= number_to_currency(@payment_intent.amount_received / 100.0, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>.</p> 
+ <p>Le statut de votre paiement est : <%= @payment_intent.status %>.</p> 
+ <p>Payment Intent ID: <%= @payment_intent.id %></p>
+
+ <p>Item ID: <%= @item_id %></p>
+
+ 
+ 
+<%= link_to "Revenir à l'accueil", root_path, class: "btn btn-secondary" %>
+
+
+</div>
+</body>
+</html>
