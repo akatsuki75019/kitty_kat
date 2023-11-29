@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>KittyKat</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+
+    <!--CDN Tailwind-->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+    </style>
+
+  </head>
+
+  <div class="container">
+    <div class="flex flex-wrap">
+      <div class="w-1/3 ml-auto bg-gray-500 h-12 flex flex-col justify-start items-start">
+        <div class="place-items-start inline-flex">
+          <div class="relative top-10 left-2 px-4 py-1 bg-emerald-500 ">
+            <div class="justify-start items-center gap-1 flex">
+              <div class="text-center text-white text-base font-semibold font-['Inter'] leading-relaxed">-50%</div>
+            </div>
+          </div>
+        </div>
+        <img class="w-fit h-fit object-cover" src="https://helios-i.mashable.com/imagery/articles/05bWohHVcmI4wy8gnlR3oBo/hero-image.fill.size_1200x900.v1623363665.png" />
+      </div>
+
+
+      
+
+      <div class="w-1/3 mr-auto bg-gray-400 h-12 flex flex-col justify-start items-start">
+        
+      <div class="w-[1247px] justify-start items-start gap-16 inline-flex">
+        <div class="flex-col justify-start items-start gap-3 inline-flex">
+            <div class="w-[196px] h-[196px] rounded-[100px] justify-center items-center inline-flex">
+                <img class="w-[196px] h-[196px]" src="https://via.placeholder.com/196x196" />
+            </div>
+            <div class="self-stretch h-8 flex-col justify-start items-center gap-1 flex">
+                <div class="self-stretch text-center text-neutral-900 text-lg font-medium font-['Space Grotesk'] leading-loose">Les Chatons</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>
