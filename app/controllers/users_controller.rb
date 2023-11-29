@@ -20,13 +20,6 @@ class UsersController < ApplicationController
     end
   end
 
-  private 
-
-  def user_params
-    params.require(:user).permit(:nom, :email, :password)
-  end
-end
-
   def edit
   end
 
@@ -35,5 +28,11 @@ end
 
   def destroy
   end
+  
+  private 
 
+  def user_params
+    params.require(:user).permit(:nom, :email, :password)
+  end
 end
+
