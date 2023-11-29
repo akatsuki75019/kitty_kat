@@ -3,12 +3,10 @@ source "https://rubygems.org"
 ruby "3.2.2"
 
 gem 'faker'
-
 gem 'table_print'
-
 gem 'dotenv-rails'
-
 gem 'devise'
+gem 'letter_opener'
 
 gem 'stripe'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
