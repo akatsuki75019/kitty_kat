@@ -1,6 +1,18 @@
 <p style="color: green"><%= notice %></p>
 
 
+
+<div id="items">
+  <% @items.each do |item| %>
+    <%= render partial: 'item', locals: { item: item } %>
+    <p>
+      <%= link_to "Show this item", item %>
+    </p>
+  <% end %>
+</div>
+
+<!-- <%= link_to "New item", new_item_path %> -->
+
 <div class="bg-white py-12">
   <div class="isolate bg-white px-6 lg:px-8">
     <div class="mx-auto max-w-2xl text-center">
@@ -33,3 +45,4 @@
     </div>
   </div>
 </div>
+
