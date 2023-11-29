@@ -31,30 +31,19 @@ class CheckoutController < ApplicationController
   end
 
   def success
-    puts  "$$$$$$$$$$$$$$$$$$"
-    puts @session.inspect
-    puts  "$$$$$$$$$$$$$$$$$$$$$"
+
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
     @item_id = @session.metadata.item_id 
 
-    # Récupérez l'ID du client Stripe à partir du paiement
-    #stripe_customer_id = @payment_intent.id
 
-    # Créez une nouvelle instance d'Attendance
-   # @attendance = Attendance.new(
-    #  user_id: current_user.id,  # Utilisez l'ID de l'utilisateur actuel
-    # event_id: @event_id,
-    # stripe_customer_id: stripe_customer_id
-    # )
+    # Création d'une nouvelle instance dans la BDD Order
+    @order = Order.create(user_id: current_user.id)
+
+    #Création des instances dans la table jointe order_items
+    OrderItem.create(order_id: @order.id, item_id: @item_id)
+
      
-    # if @attendance.save
-    #   @attendance_created = true #pour gérer le bouton revvenir à levent dans le show du check out success
-    # else
-    #   # Gérez les erreurs en cas d'échec de sauvegarde de l'`Attendance`
-    #   flash[:error] = 'Erreur lors de la création de l\'Attendance.'
-    #   redirect_to event_path(@event_id)
-    # end
   end
 
 
