@@ -1,0 +1,18 @@
+<h1>Carts#show</h1>
+<p>Find me in app/views/carts/show.html.erb</p>
+
+
+<% if @cart_items.any? %>
+  <ul>
+    <% @cart_items.each do |cart_item| %>
+      <li>
+        <%= cart_item.item.title %> -
+        <%= cart_item.item.price %> -
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Votre panier est vide.</p>
+<% end %>
+
+<%= link_to "Retour aux articles", items_path %>

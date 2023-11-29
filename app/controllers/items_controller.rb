@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   # GET /items or /items.json
   def index
     @items = Item.all
+   # @cart_items = CartItems.new
   end
 
   # GET /items/1 or /items/1.json
@@ -57,6 +58,12 @@ class ItemsController < ApplicationController
     end
   end
 
+  def add_to_cart
+    @item=Item.find(params[:id])
+    current_user.add_item(@item)
+    redirect_to items_path, notice: "Item ajouté au panier avec succès"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item
@@ -67,4 +74,6 @@ class ItemsController < ApplicationController
     def item_params
       params.require(:item).permit(:title, :description, :price, :image_url)
     end
+
+
 end
