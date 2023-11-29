@@ -2,7 +2,7 @@
   <div class="flex lg:flex-1">
     <a href="#" class="-m-1.5 p-1.5">
       <span class="sr-only">Your Company</span>
-      <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="This is the logo of our Kitty Kat company">
+      <%= image_tag("logo_kitty2.png", class: "h-11 w-auto", alt: "This is the logo of our Kitty Kat company")%>
     </a>
   </div>
   <div class="flex lg:hidden">
@@ -16,10 +16,10 @@
   <div class="hidden lg:flex lg:gap-x-12">
     <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Accueil</a>
     <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Contact</a>
-    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Panier</a>
+    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Notre Collection</a>
   </div>
   <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
+    <a href="#" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
   </div>
 </nav>
 

@@ -1,26 +1,6 @@
 # README
 
 
+Lien vers le diagramme de la base de données : 
+https://dbdiagram.io/d/KittyKat-Project-6564997b3be1495787d0056f
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

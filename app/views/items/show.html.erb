@@ -7,4 +7,9 @@
   <%= link_to "Back to items", items_path %>
 
   <%= button_to "Destroy this item", @item, method: :delete %>
+
+    <%= button_to "Ajouter au panier", cart_items_path(@item), method: :post %>
+
 </div>
+
+
