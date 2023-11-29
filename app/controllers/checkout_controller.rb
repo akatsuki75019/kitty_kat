@@ -46,6 +46,10 @@ class CheckoutController < ApplicationController
     # Création d'une nouvelle instance dans la BDD Order
     @order = Order.create(user_id: current_user.id)
 
+    # Récupération de l'order_id nouvellement créé
+    @order_id = @order.id
+
+
     
     # Récupération des IDs des cart_items depuis les métadonnées
     cart_item_ids = @session.metadata.cart_item_ids.split(',').map(&:to_i)
