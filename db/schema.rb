@@ -15,7 +15,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_29_113807) do
   enable_extension "plpgsql"
 
   create_table "cart_items", force: :cascade do |t|
-  create_table "cart_items", force: :cascade do |t|
     t.bigint "cart_id", null: false
     t.bigint "item_id", null: false
     t.datetime "created_at", null: false
