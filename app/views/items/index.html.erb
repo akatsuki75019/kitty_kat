@@ -3,7 +3,7 @@
 
 <div id="items">
   <% @items.each do |item| %>
-    <%= render item %>
+    <%= render partial: 'item', locals: { item: item } %>
     <p>
       <%= link_to "Show this item", item %>
     </p>
