@@ -1,18 +1,35 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
 require 'faker'
-5.times do
+
+# Create an hash with associated last and first name
+team_players = [
+  ["Nellote", "thehacking1"],
+  ["Flo", "thehacking2"],
+  ["Sam", "thehacking3"],
+  ["Alex", "thehacking4"],
+  ["Axel", "thehacking5"],
+  ["Vincent", "thehacking5"]
+]
+
+#now create each user
+team_players.shuffle.each do |player|
+  first_name = player[0]
+  password = player[1]
+
+  email = "#{first_name.tr(' ', '_').tr('é', 'e').tr('î', 'i')}@yopmail.com"
+  # tr replace space in last name by underscore
+
+  User.create!(
+    email: email,
+    password: password)
+end
+
+
+
+10.times do
   Item.create(
     title: Faker::Commerce.product_name,
     description: Faker::Lorem.paragraph,
-    price: Faker::Commerce.price(range: 50..200),
+    price: Faker::Commerce.price(range: 1.00..20.00),
     image_url: Faker::LoremFlickr.image(size: "300x300", search_terms: ['item'])
   )
 end
