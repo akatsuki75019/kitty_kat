@@ -1,6 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 
+
 <div id="items">
   <% @items.each do |item| %>
     <%= render partial: 'item', locals: { item: item } %>
@@ -11,3 +12,37 @@
 </div>
 
 <!-- <%= link_to "New item", new_item_path %> -->
+
+<div class="bg-white py-12">
+  <div class="isolate bg-white px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Contact sales</h2>
+      <p class="mt-2 text-lg leading-8 text-gray-600">Aute magna irure deserunt veniam aliqua magna enim voluptate.</p>
+    </div>
+    <div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+      <% @items.each do |item| %> 
+        <article class="flex max-w-xl flex-col items-center justify-between">
+          <div class="group relative">
+            <a href="#">
+              <div class="md:w-96 md:h-72 justify-center overflow-hidden flex items-center inline-flex">
+                <%= image_tag("kitty_cat.jpeg", class: "w-full h-full object-cover", alt: "kitten hiding into a jean")%>
+              </div>
+            </a>
+          </div>
+          <div class="relative mt-8 flex items-center gap-x-4">
+            <div class="text-sm leading-6">
+              <p class="font-semibold text-gray-900">
+                <a href="#">
+                  <span class="absolute inset-0"></span>
+                  <%= item.title %>
+                </a>
+              </p>
+              <p class="text-gray-600 text-center"><%= item.price %> euros</p>
+            </div>
+          </div>
+        </article>
+      <% end %>
+    </div>
+  </div>
+</div>
+

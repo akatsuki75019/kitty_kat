@@ -29,11 +29,13 @@
   <body>
 
     <header class="absolute inset-x-0 top-0 z-50">
-      <%= render 'layouts/navbar2' %>
+      <%= render 'layouts/navbar' %>
     </header>
 
       <%= yield %>
-
+    <% if notice != nil %>
+      <%= render 'layouts/toast' %>
+    <% end %>
   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script> <!-- FLOWBITE MA GUEULE --> 
   </body>
