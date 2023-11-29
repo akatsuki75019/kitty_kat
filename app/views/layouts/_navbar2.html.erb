@@ -11,6 +11,7 @@
       </button>
       <!-- Dropdown menu -->
       <div class="z-50 hidden my-4 text-base list-none divide-y divide-gray-100 rounded-lg shadow" id="user-dropdown">
+        <% if user_signed_in? %>
         <div class="px-4 py-3">
           <span class="block text-sm text-gray-900">Bonnie Green</span>
           <span class="block text-sm  text-gray-500">name@flowbite.com</span>
@@ -23,14 +24,16 @@
             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-500 dark:hover:text-white">Mon Panier</a>
           </li>
           <li>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-500 dark:hover:text-white">Déconnexion</a>
+            <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, data: {turbo_method: :delete}, :class=>"block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-500 dark:hover:text-white" %>
+          </li>
+          <% else %>
+          <li>
+            <a href="/users/sign_in" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-500 dark:hover:text-white">Se connecter</a>
           </li>
           <li>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-500 dark:hover:text-white">S'Inscrire</a>
+            <a href="/users/sign_up" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-500 dark:hover:text-white">S'inscrire</a>
           </li>
-          <li>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-500 dark:hover:text-white">Se Connecter</a>
-          </li>
+          <% end %>
         </ul>
       </div>
 

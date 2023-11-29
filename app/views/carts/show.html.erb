@@ -4,13 +4,16 @@
 
 <% if @cart_items.any? %>
   <ul>
+        <% total = 0 %> <!--Initialisation du prix total à 0 avant la  boucle. --->
     <% @cart_items.each do |cart_item| %>
       <li>
         <%= cart_item.item.title %> -
         <%= cart_item.item.price %> -
       </li>
+      <% total += cart_item.item.price %> <!-- À chaque itération, le prix de l'article actuel est ajouté à la variable total.--->
     <% end %>
   </ul>
+    <p>Total de votre panier : <%= total %></p>
 <% else %>
   <p>Votre panier est vide.</p>
 <% end %>
