@@ -12,6 +12,9 @@
       </li>
       <% total += cart_item.item.price %> <!-- À chaque itération, le prix de l'article actuel est ajouté à la variable total.--->
     <% end %>
+      <form action="/create-checkout-session" method="POST">
+        <button type="submit" id="checkout-button">Checkout</button>
+      </form>
   </ul>
     <p>Total de votre panier : <%= total %></p>
 <% else %>
