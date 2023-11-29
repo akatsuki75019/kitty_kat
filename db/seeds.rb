@@ -1,5 +1,30 @@
 require 'faker'
 
+# Create an hash with associated last and first name
+team_players = [
+  ["Nellote", "thehacking1"],
+  ["Flo", "thehacking2"],
+  ["Sam", "thehacking3"],
+  ["Alex", "thehacking4"],
+  ["Axel", "thehacking5"],
+  ["Vincent", "thehacking5"]
+]
+
+#now create each user
+team_players.shuffle.each do |player|
+  first_name = player[0]
+  password = player[1]
+
+  email = "#{first_name.tr(' ', '_').tr('é', 'e').tr('î', 'i')}@yopmail.com"
+  # tr replace space in last name by underscore
+
+  User.create!(
+    email: email,
+    password: password)
+end
+
+
+
 10.times do
   Item.create(
     title: Faker::Commerce.product_name,
