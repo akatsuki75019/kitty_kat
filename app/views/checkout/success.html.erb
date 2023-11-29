@@ -14,9 +14,10 @@
  <p>Item ID: <%= @item_id %></p>
 
  
-  <% if @attendance_created %>
-    <%= link_to "Revenir à l'événement", _path(@item_id), class: "btn btn-secondary" %>
-  <% end %>
+ 
+<%= link_to "Revenir à l'accueil", root_path, class: "btn btn-secondary" %>
+
+
 </div>
 </body>
 </html>
