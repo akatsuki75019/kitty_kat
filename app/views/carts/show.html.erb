@@ -12,9 +12,12 @@
       </li>
       <% total += cart_item.item.price %> <!-- À chaque itération, le prix de l'article actuel est ajouté à la variable total.--->
     <% end %>
-      <form action="/create-checkout-session" method="POST">
-        <button type="submit" id="checkout-button">Checkout</button>
+ 
+<!-- ... bouton stripe ... -->
       </form>
+        <%= button_to "Payer le panier avec Stripe", checkout_create_path(total: @cart_items.sum { |cart_item| cart_item.item.price }), class: "btn btn-primary", data: { turbo: false } %>
+      </form>
+<!-- ... bouton stripe ... -->
   </ul>
     <p>Total de votre panier : <%= total %></p>
 <% else %>
