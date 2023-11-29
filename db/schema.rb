@@ -15,7 +15,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_29_102409) do
   enable_extension "plpgsql"
 
   create_table "cart_items", force: :cascade do |t|
-  create_table "cart_items", force: :cascade do |t|
     t.bigint "cart_id", null: false
     t.bigint "item_id", null: false
     t.datetime "created_at", null: false
@@ -43,6 +42,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_29_102409) do
   create_table "order_items", force: :cascade do |t|
     t.bigint "order_id", null: false
     t.bigint "item_id", null: false
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_order_items_on_item_id"
