@@ -15,7 +15,7 @@
  
 <!-- ... bouton stripe ... -->
       </form>
-        <%= button_to "Payer le panier avec Stripe", checkout_create_path(total: @cart_items.sum { |cart_item| cart_item.item.price }), class: "btn btn-primary", data: { turbo: false } %>
+        <%= button_to "Confirmer la commande et payer", checkout_create_path(total: @cart_items.sum { |cart_item| cart_item.item.price }), class: "btn btn-primary", data: { turbo: false } %>
       </form>
 <!-- ... bouton stripe ... -->
   </ul>
