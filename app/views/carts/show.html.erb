@@ -1,27 +1,142 @@
-<h1>Carts#show</h1>
-<p>Find me in app/views/carts/show.html.erb</p>
+<section class="py-24   mt-6">
+  <% if @cart_items.any? %> <%# ----------- PANIER AVEC ITEMS ----------- %>
+    <div class="px-4 py-6 mx-auto max-w-7xl lg:py-4 md:px-6">
+      <div>
+        <h1 class="text-center mb-6 text-7xl font-semibold ">Votre panier</h1>
+        <div class="w-full flex items-center justify-center mb-10">
+          <%= image_tag("chaton_achat.png", class: "object-cover w-96 h-96", alt: "kitten hiding into a jean")%>
+        </div>
+        <div class="p-6 mb-8 ">
+          <div class="flex-wrap items-center hidden mb-6 -mx-4 md:flex md:mb-8">
+            <div class="w-full px-4 mb-6 md:w-4/6 lg:w-6/12 md:mb-0">
+              <h2 class="font-bold text-gray-500 ">Produit</h2>
+            </div>
+            <div class="hidden px-4 lg:block lg:w-2/12 text-center">
+              <h2 class="font-bold text-gray-500 ">Prix à l'unité</h2>
+            </div>
+            <div class="w-auto px-4 md:w-1/6 lg:w-2/12 text-center">
+              <h2 class="font-bold text-gray-500">Quantité</h2>
+            </div>
+            <div class="w-auto px-4 text-right md:w-1/6 lg:w-2/12 ">
+              <h2 class="font-bold text-gray-500"> Total</h2>
+            </div>
+          </div>
 
+          <% total = 0 %>
+          <% @cart_items.each do |cart_item| %>
+          <% total += cart_item.item.price %>
+          <div class="py-4 mb-8 border-t border-b border-gray-200 dark:border-gray-700"> 
+            <div class="flex flex-wrap items-center -mx-4 ">
+              <div class="w-full px-4 mb-6 md:w-4/6 lg:w-6/12 md:mb-0">
+                <div class="flex flex-wrap items-center -mx-4">
+                  <div class="w-full px-4 mb-3 md:w-1/3">
+                    <div class="w-full h-96 md:h-36 md:w-36">
+                      <%= image_tag("cat reading.jpeg", class: "object-cover w-full h-full rounded-full", alt: "kitten hiding into a jean")%>
+                    </div>
+                  </div>
+                  <div class="w-2/3 px-4">
+                    <h2 class="mb-2 text-xl font-bold"><%= cart_item.item.title %></h2>
+                    <p class="text-gray-500 "><%= cart_item.item.description %></p>
+                    <div class="mt-3">
+                      <a class="text-sm" href="#">Supprimer du panier</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="hidden px-4 lg:block lg:w-2/12 text-center">
+                <p class="text-lg font-semibold"><%= cart_item.item.price %> €</p>
+              </div>
+              <div class="w-auto px-4 md:w-1/6 lg:w-2/12 text-center">
+                <div class="inline-flex items-center px-4 font-semibold text-gray-500 border border-gray-200 rounded-md dark:border-gray-700">
+                  <button class="py-2 hover:text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                      <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+                    </svg>
+                  </button>
+                  <input type="number" class="w-12 px-2 py-4 text-center border-0 rounded-md dark:bg-gray-800 md:text-center" placeholder="1">
+                  <button class="py-2 hover:text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                      <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="w-auto px-4 text-right md:w-1/6 lg:w-2/12 ">
+                <p class="text-lg font-bold"><%= cart_item.item.price %> €</p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
 
-<% if @cart_items.any? %>
-  <ul>
-        <% total = 0 %> <!--Initialisation du prix total à 0 avant la  boucle. --->
-    <% @cart_items.each do |cart_item| %>
-      <li>
-        <%= cart_item.item.title %> -
-        <%= cart_item.item.price %> -
-      </li>
-      <% total += cart_item.item.price %> <!-- À chaque itération, le prix de l'article actuel est ajouté à la variable total.--->
+    <div class="flex flex-wrap justify-center">
+      <div class="w-full px-4 mb-4 lg:w-2/3 ">
+        <div class="p-6 border dark:bg-gray-900 dark:border-gray-900 md:p-8">
+          <h2 class="mb-8 text-3xl font-bold text-gray-700">Résumé</h2>
+          <div class="flex items-center justify-between pb-4 mb-4 border-b border-gray-300 dark:border-gray-700 ">
+            <span class="text-gray-700">Total des articles de votre panier</span>
+            <span class="text-xl font-bold text-gray-700 "><%= total %> €</span>
+          </div>
+          <div class="flex items-center justify-between pb-4 mb-4 ">
+            <span class="text-gray-700 ">Livraison</span>
+            <span class="text-xl font-bold text-gray-700 ">Gratuite</span>
+          </div>
+          <div class="flex items-center justify-between pb-4 mb-4 ">
+            <span class="text-gray-700">Votre montant à payer</span>
+            <span class="text-xl font-bold text-gray-700"><%= total %> €</span>
+          </div>
+          <div class="flex items-center justify-between ">
+            <a class="inline-block w-full px-8 py-4 mb-4 mr-6 font-bold text-center uppercase transition duration-200 bg-gray-100 border rounded-md dark:hover:bg-gray-900 dark:border-gray-800 dark:bg-gray-800 md:mb-0 md:w-auto hover:bg-gray-200 " href="/items">Continuer vos achats</a>
+
+<!-- ... bouton stripe ... -->
+            <%= button_to(
+              "KO Payer maintenant KO",
+              checkout_create_path(total: @cart_items.sum { |cart_item| cart_item.item.price }),
+              method: :post,
+              class: "inline-block w-full px-8 py-4 font-bold text-center text-white uppercase transition duration-200 bg-gray-800 rounded-md md:w-auto hover:bg-gray-900"
+            ) %>
+        <%= button_to "Confirmer la commande et payer OK", checkout_create_path(total: @cart_items.sum { |cart_item| cart_item.item.price }), class: "btn btn-primary", data: { turbo: false } %>
+<!-- ... bouton stripe ... -->
+            
+          </div>
+        </div>
+     </div>
+    </div>
+
+  <% else %> <%# ----------- PANIER VIDE ----------- %>
+    <% if user_signed_in? %> <%# ----------- PANIER VIDE CONNECTE ----------- %>
+    <div class="px-4 py-6 mx-auto max-w-7xl lg:py-4 md:px-6">
+      <div class="text-center">
+        <h3 class=" mb-6 text-4xl font-semibold ">Votre panier est vide</h3>
+        <div class="w-full flex items-center justify-center mb-10">
+          <%= image_tag("chaton_achat.png", class: "object-cover w-96 h-96", alt: "kitten hiding into a jean")%>
+        </div>
+        <span class="w-2/3">Vous n'avez pas encore d'articles dans votre panier.</span><br>
+        <span>Retournez sur la page des photos de chat.</span>
+        <div class="flex justify-center mt-10">
+          <a href="/items" class=" w-1/5 min-w-fit rounded-mdtext-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Retour à la liste des photos</a>
+        </div>
+      </div>
+    </div>
+
+    <% else %> <%# ----------- PANIER VIDE NON CONNECTE ----------- %>
+    <div class="px-4 py-6 mx-auto max-w-7xl lg:py-4 md:px-6">
+      <div class="text-center">
+        <h3 class=" mb-6 text-4xl font-semibold ">Votre panier est vide</h3>
+        <div class="w-full flex items-center justify-center mb-10">
+          <%= image_tag("chaton_achat.png", class: "object-cover w-96 h-96", alt: "kitten hiding into a jean")%>
+        </div>
+        <span class="w-2/3">Si vous disposez d’un compte, connectez-vous pour consulter votre panier.</span><br>
+        <span>Sinon, inscrivez-vous pour visualiser nos photos de chat les plus populaires.</span>
+        <div class="flex justify-center mt-10">
+          <a href="/users/sign_up" class=" w-1/5 min-w-fit rounded-mdtext-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">S'inscrire</a>
+        </div>
+        <div class="mt-3 border-t w-1/2 mx-auto">
+          <p class="mt-3 text-center text-sm text-gray-500">Déjà inscrit ?
+            <a href="/users/sign_in" class="font-semibold leading-6 text-neutral-400 hover:text-gray-900">Connecte toi.</a> 
+          </p>
+        </div>
+      </div>
     <% end %>
- 
-<!-- ... bouton stripe ... -->
-      </form>
-        <%= button_to "Confirmer la commande et payer", checkout_create_path(total: @cart_items.sum { |cart_item| cart_item.item.price }), class: "btn btn-primary", data: { turbo: false } %>
-      </form>
-<!-- ... bouton stripe ... -->
-  </ul>
-    <p>Total de votre panier : <%= total %></p>
-<% else %>
-  <p>Votre panier est vide.</p>
-<% end %>
-
-<%= link_to "Retour aux articles", items_path %>
+  <% end %>
+</section>
