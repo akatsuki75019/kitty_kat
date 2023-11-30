@@ -4,6 +4,7 @@ class CartItemsController < ApplicationController
   def create
 
     item = Item.find(params.fetch(:item_id, nil))
+    quantity = params.fetch(:quantity, 1).to_i  # Utilisez la quantité fournie, sinon par défaut à 1
     result = current_user.cart.add_item(item)
     #OrderMailer.order_notification(current_user, @order).deliver_now
     
@@ -15,7 +16,8 @@ class CartItemsController < ApplicationController
   end
 
   def update
-     # Vous pouvez implémenter la mise à jour de la quantité d'un article dans le panier ici
+    @cart_item = CartItem.find(params[:id])
+    new_quantity = params[:cart_item][:quantity].to_i
   end
 
   def destroy
