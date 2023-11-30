@@ -1,8 +1,13 @@
 class CheckoutController < ApplicationController
   def create
     @total = params[:total].to_d
-    @item_id = params[:item_id]
     @user_id = params[:user_id]
+    @cart_items = current_user.cart.cart_items.includes(:item)
+    total_price = @cart_items.sum { |cart_item| cart_item.item.price }
+  
+    cart_item_ids = @cart_items.pluck(:id)
+  
+
     @session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [
@@ -18,8 +23,9 @@ class CheckoutController < ApplicationController
         },
       ],
       metadata: {
-        item_id: @item_id,
+        cart_item_ids: cart_item_ids.join(','),
         user_id: @user_id
+       
       },
       mode: 'payment',
       customer_email: current_user.email, 
@@ -31,30 +37,32 @@ class CheckoutController < ApplicationController
   end
 
   def success
-    puts  "$$$$$$$$$$$$$$$$$$"
-    puts @session.inspect
-    puts  "$$$$$$$$$$$$$$$$$$$$$"
+
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
-    @item_id = @session.metadata.item_id 
+    cart_item_ids = @session.metadata.cart_item_ids
+   
 
-    # Récupérez l'ID du client Stripe à partir du paiement
-    #stripe_customer_id = @payment_intent.id
+    # Création d'une nouvelle instance dans la BDD Order
+    @order = Order.create(user_id: current_user.id)
 
-    # Créez une nouvelle instance d'Attendance
-   # @attendance = Attendance.new(
-    #  user_id: current_user.id,  # Utilisez l'ID de l'utilisateur actuel
-    # event_id: @event_id,
-    # stripe_customer_id: stripe_customer_id
-    # )
-     
-    # if @attendance.save
-    #   @attendance_created = true #pour gérer le bouton revvenir à levent dans le show du check out success
-    # else
-    #   # Gérez les erreurs en cas d'échec de sauvegarde de l'`Attendance`
-    #   flash[:error] = 'Erreur lors de la création de l\'Attendance.'
-    #   redirect_to event_path(@event_id)
-    # end
+    # Récupération de l'order_id nouvellement créé
+    @order_id = @order.id
+
+
+    
+    # Récupération des IDs des cart_items depuis les métadonnées
+    cart_item_ids = @session.metadata.cart_item_ids.split(',').map(&:to_i)
+
+
+    #Création des instances dans la table jointe order_items
+    cart_item_ids.each do |cart_item_id|
+      cart_item = CartItem.find(cart_item_id)
+      OrderItem.create(order_id: @order.id, item_id: cart_item.item_id)
+    end
+
+    # Effacer les articles du panier après la commande
+      current_user.cart.cart_items.destroy_all
   end
 
 

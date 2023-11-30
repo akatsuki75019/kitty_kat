@@ -1,7 +1,3 @@
-
-
-
-
 <section class="py-32">
   <% if @cart_items.any? %> <%# ----------- PANIER AVEC ITEMS ----------- %>
     <div class="px-4 py-6 mx-auto max-w-7xl lg:py-4 md:px-6">
@@ -91,9 +87,17 @@
           </div>
           <div class="flex items-center justify-between ">
             <a class="inline-block w-full px-8 py-4 mb-4 mr-6 font-bold text-center uppercase transition duration-200 bg-gray-100 border rounded-md dark:hover:bg-gray-900 dark:border-gray-800 dark:bg-gray-800 md:mb-0 md:w-auto hover:bg-gray-200 " href="/items">Continuer vos achats</a>
-            <form action="/create-checkout-session" method="POST">
-              <button class="inline-block w-full px-8 py-4 font-bold text-center text-white uppercase transition duration-200 bg-gray-800 rounded-md md:w-auto hover:bg-gray-900" type="submit" id="checkout-button" >Payer maintenant</button>
-            </form>
+
+<!-- ... bouton stripe ... -->
+            <%= button_to(
+              "KO Payer maintenant KO",
+              checkout_create_path(total: @cart_items.sum { |cart_item| cart_item.item.price }),
+              method: :post,
+              class: "inline-block w-full px-8 py-4 font-bold text-center text-white uppercase transition duration-200 bg-gray-800 rounded-md md:w-auto hover:bg-gray-900"
+            ) %>
+        <%= button_to "Confirmer la commande et payer OK", checkout_create_path(total: @cart_items.sum { |cart_item| cart_item.item.price }), class: "btn btn-primary", data: { turbo: false } %>
+<!-- ... bouton stripe ... -->
+            
           </div>
         </div>
      </div>
