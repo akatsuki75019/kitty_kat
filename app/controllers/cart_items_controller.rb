@@ -19,6 +19,10 @@ class CartItemsController < ApplicationController
   end
 
   def destroy
+    cart_item = CartItem.find(params[:id])
+    cart_item.destroy
+    redirect_back(fallback_location: cart_path, notice: "L'item a été supprimé du panier avec succès")
+
   end
 
   private
