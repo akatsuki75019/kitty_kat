@@ -2,13 +2,13 @@
 
 
 
-<section class="py-24">
+<section class="py-32">
   <% if @cart_items.any? %> <%# ----------- PANIER AVEC ITEMS ----------- %>
     <div class="px-4 py-6 mx-auto max-w-7xl lg:py-4 md:px-6">
       <div>
-        <h1 class="text-center mb-6 text-7xl font-semibold ">Votre panier</h1>
+        <h1 class="text-center mb-6 text-6xl font-black ">Votre panier</h1>
         <div class="w-full flex items-center justify-center mb-10">
-          <%= image_tag("chaton_achat.png", class: "object-cover w-99 h-99", alt: "kitten hiding into a jean")%>
+          <%= image_tag("chaton_achat.png", width:"500", height:"600", class: "object-cover w-99 h-99", alt: "kitten hiding into a jean")%>
         </div>
         <div class="p-6 mb-8 ">
           <div class="flex-wrap items-center hidden mb-6 -mx-4 md:flex md:mb-8">
@@ -103,9 +103,9 @@
     <% if user_signed_in? %> <%# ----------- PANIER VIDE CONNECTE ----------- %>
     <div class="px-4 py-6 mx-auto max-w-7xl lg:py-4 md:px-6">
       <div class="text-center">
-        <h3 class=" mb-6 text-4xl font-semibold ">Votre panier est vide</h3>
+        <h3 class=" mb-6 text-5xl text-6xl font-black ">Votre panier est vide</h3>
         <div class="w-full flex items-center justify-center mb-10">
-          <%= image_tag("chaton_achat.png", class: "object-cover w-99 h-99", alt: "kitten hiding into a jean")%>
+          <%= image_tag("chaton_achat.png", width:"500", height:"600", class: "object-cover w-50 h-50", alt: "kitten hiding into a jean")%>
         </div>
         <span class="text-lg">Vous n'avez pas encore d'articles dans votre panier.</span><br>
         <span class="text-lg">Retournez sur la page des photos de chat.</span>
@@ -116,9 +116,9 @@
     </div>
 
     <% else %> <%# ----------- PANIER VIDE NON CONNECTE ----------- %>
-    <div class="px-4 py-6 mx-auto max-w-7xl lg:py-4 md:px-6">
+    <div class="px-4 py-6 mx-auto max-w-5xl lg:py-4 md:px-6">
       <div class="text-center">
-        <h3 class=" mb-6 text-4xl font-semibold ">Votre panier est vide</h3>
+        <h3 class=" mb-6 text-7xl text-6xl font-black ">Votre panier est vide</h3>
         <div class="w-full flex items-center justify-center mb-10">
           <%= image_tag("chaton_achat.png", class: "object-cover w-96 h-96", alt: "kitten hiding into a jean")%>
         </div>
