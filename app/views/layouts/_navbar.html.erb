@@ -10,10 +10,10 @@
         <%= image_tag("user_connexion_picto.png", class: "w-10 h-10 rounded-full", alt: "user photo")%>
       </button>
       <!-- Dropdown menu -->
-      <div class="z-50 hidden my-4 text-base list-none divide-y divide-gray-100 rounded-lg shadow" id="user-dropdown">
+      <div class="z-50 bg-white hidden my-4 text-base list-none divide-y divide-gray-200 rounded-lg shadow" id="user-dropdown">
         <% if user_signed_in? %>
           <div class="px-4 py-3">
-            <span class="block text-sm text-gray-500">User Email (on-going)</span>
+            <span class="block text-sm text-gray-500"><%= current_user.email %></span>
           </div>
           <ul class="py-2" aria-labelledby="user-menu-button">
             <li>
@@ -45,7 +45,7 @@
     </button>
   </div>
   <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
-    <ul class="flex flex-col font-medium p-4 md:p-0 mt-4  rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
+    <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 bg-white rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
       <li>
         <a href="/" class="text-sm font-semibold leading-6 text-gray-900" aria-current="page">Accueil</a>
       </li>

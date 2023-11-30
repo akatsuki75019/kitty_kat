@@ -1,7 +1,7 @@
-<div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+<div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 sm:grid-cols-1 lg:grid-cols-12">
   <div class="mr-auto place-self-center lg:col-span-7">
     <div class="mb-8 bg-white bg-opacity-0 flex justify-between items-center">
-      <div class="max-w-3xl text-neutral-900 text-3xl font-medium leading-9 row-start">Catégories</div>
+      <div class="max-w-3xl text-neutral-900 text-3xl font-medium leading-9 row-start">Catégories  </div>
       <div class="border-b border-neutral-900 justify-end flex items-center gap-1">
         <a href="#" class="ml-auto inline-flex items-center justify-center py-3 mr-3 text-base font-medium text-center text-neutral-900 rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 font-medium leading-loose">
           Voir toutes les catégories
@@ -10,10 +10,10 @@
     </div>
 
     <!--Les vignettes catgories-->
-    <div class="items-center gap-16 inline-flex">
+    <div class="flex flex-col sm:flex-row items-center gap-16">
       <!--Vignette chaton-->
-      <div class="flex-col justify-start items-start gap-3 inline-flex">
-        <div class="w-48 h-48 rounded-full justify-center overflow-hidden flex items-center inline-flex">
+      <div class="sm:flex-col justify-start items-start gap-3">
+        <div class="w-48 h-48 rounded-full justify-center overflow-hidden flex items-center">
           <%= image_tag("kitty_cat.jpeg", class: "w-full h-full object-cover rounded-full", alt: "kitten hiding into a jean")%>
         </div>
         <div class="self-stretch h-8 flex-col justify-start items-center gap-1 flex">
@@ -21,8 +21,8 @@
         </div>
       </div>
       <!--Vignette festif-->
-      <div class="flex-col justify-start items-start gap-3 inline-flex">
-        <div class="w-48 h-48 rounded-full justify-center overflow-hidden flex items-center inline-flex">
+      <div class="sm:flex-col justify-start items-start gap-3">
+        <div class="w-48 h-48 rounded-full justify-center overflow-hidden flex items-center">
           <%= image_tag("christmas_cat_sm.webp", class: "w-full h-full object-cover rounded-full", alt: "Cat wearing an christmas hat in front of a christmas tree")%>
         </div>
         <div class="self-stretch h-8 flex-col justify-start items-center gap-1 flex">
@@ -30,8 +30,8 @@
         </div>
       </div>
       <!--Vignette funny-->
-      <div class="flex-col justify-start items-start gap-3 inline-flex">
-        <div class="w-48 h-48 rounded-full justify-center overflow-hidden flex items-center inline-flex">
+      <div class="sm:flex-col justify-start items-start gap-3">
+        <div class="w-48 h-48 rounded-full justify-center overflow-hidden flex items-center">
           <%= image_tag("funny_cat_sm.jpeg", class: "w-full h-full object-cover rounded-full", alt: "Cat illustration with one jumping with open arm")%>
         </div>
         <div class="self-stretch h-8 flex-col justify-start items-center gap-1 flex">
@@ -39,8 +39,8 @@
         </div>
       </div>
       <!--Vignette beauté-->
-      <div class="flex-col justify-start items-start gap-3 inline-flex">
-        <div class="w-48 h-48 rounded-full justify-center overflow-hidden flex items-center inline-flex">
+      <div class="sm:flex-col justify-start items-start gap-3">
+        <div class="w-48 h-48 rounded-full justify-center overflow-hidden flex items-center">
           <%= image_tag("cute_cat_square.jpeg", class: "w-full h-full object-cover rounded-full", alt: "Beautiful white persian cat")%>
         </div>
         <div class="self-stretch h-8 flex-col justify-start items-center gap-1 flex">
@@ -48,8 +48,8 @@
         </div>
       </div>
       <!--Vignette colère-->
-      <div class="flex-col justify-start items-start gap-3 inline-flex">
-        <div class="w-48 h-48 rounded-full justify-center overflow-hidden flex items-center inline-flex">
+      <div class="sm:flex-col justify-start items-start gap-3">
+        <div class="w-48 h-48 rounded-full justify-center overflow-hidden flex items-center">
           <%= image_tag("angry_cat_sm.jpeg", class: "w-full h-full object-cover rounded-full", alt: "Angry cat screaming")%>
         </div>
         <div class="self-stretch h-8 flex-col justify-start items-center gap-1 flex">
