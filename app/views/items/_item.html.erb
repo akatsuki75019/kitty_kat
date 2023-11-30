@@ -1,90 +1,86 @@
-<div class="max-w-screen-xl mx-auto h-46 bg-white flex flex-col justify-start items-center mt-10 py-12">
-  <div class="gap-20 flex flex-wrap justify-start items-start">
-      <div class="w-[570px] flex-col inline-flex">
+<div class="max-w-screen-xl mx-auto h-46 bg-white flex flex-col justify-start items-center mt-10 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">     
           <!-- ... Image du chat ... -->
-          <img class="object-cover mt-8" src="https://cdn.britannica.com/25/172925-050-DC7E2298/black-cat-back.jpg" />
 
-      </div>
+      <img class="w-auto flex-col inline-flex ">
+        <img class="">
+          <%= link_to item_path(item.id) do %>
+            <%= image_tag(item.image_url, class: "w-full max-h-full object-cover items-baseline", alt: "Description de l'image") %>
+          <% end %>
+        </img>
+      </img>
+
       <!-- ... PARTIE DROITE ... -->
-      <div class="w-[456px] flex-col inline-flex mt-8">
+      <div class="flex flex-col justify-evenly mt-8">
         <!-- ...ITEMS/NAVCRUB ... -->
           <div class = "mb-6">
           <%= render 'items/navcrub' %>
           </div>
-          <div class="h-40 flex-col">
-<!-- ... TITRE + DESCRIPTIONS ... -->              
-          <h1 class = "font-bold text-xl""> <strong> <%= item.title %>  </strong></h1>
+          <div class="h-3/4 flex-col">
+          <!-- ... TITRE + DESCRIPTIONS ... -->              
+          <h1 class = "font-bold text-xl"> <strong> <%= item.title %>  </strong></h1>
               <p><%= item.description%><p>
           </div>
-          <div class="h-auto flex-col"> 
-            <div class ="text-lg"> <strong> <%= item.price %> ¥ </strong></div>
-          </div>
-          
-              
+          <div class="h-auto flex-col mt-10"> 
+            <div class ="text-xl"> <strong> <%= item.price %>  € </strong></div>
+          </div>          
+                                <!-- ...  INFO SUR UTILISATEUR ETC ... -->
           <div class=" py-6 border-t border-white border-opacity-0 flex-col ">
-          <div class="button-primary">32 personnes ont aimé cette photo</div>
+            <div class="mt-8">32 personnes ont achetées cette photo</div>
+            <div class=" border-gray-200 flex flex-col justify-start gap-2 my-8  w-1/2 ">
+                <div class="flex justify-start items-start sm:grid sm:grid-cols-2 gap-auto">
+                    <div class="text-zinc-500 text-xs font-normal font-['Inter'] leading-tight">By:</div>
+                    <div class="text-neutral-900 text-xs font-normal font-['Inter'] leading-tight ">@BlackPanter77</div>
+                </div>
+
+                <div class="flex justify-start items-start sm:grid sm:grid-cols-2 gap-auto">
+                    <div class="text-zinc-500 text-xs font-normal font-['Inter'] leading-tight">Nom du cat:</div>
+                    <div class="text-neutral-900 text-xs font-normal font-['Inter'] leading-tight">Martin Mystere</div>
+                </div>
+
+                <div class="flex justify-start items-start sm:grid sm:grid-cols-2 gap-auto">
+                    <div class="text-zinc-500 text-xs font-normal font-['Inter'] leading-tight text-start">TAGS:</div>
+                    <div class="text-neutral-900 text-xs font-normal font-['Inter'] leading-tight text-start ">poils longs, face, solo cat, promo</div>
+                </div>
+              </div>
                 <!-- ... BOUTON ACHAT ... -->
             <div class="h-auto py-6 border-t border-gray-200 flex-col  ">
                 <div class="self-stretch h-15 flex-col justify-start items-start flex ">
-                  
-
+                                
                   <!-- ... bouton stripe ... -->
 
 
-                  <%= button_to "Achat immediat stripe", checkout_create_path(total: item.price, item_id: item.id),form_class: "contents", class: "flex w-full justify-center rounded-mdtext-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", data: {turbo: false} %>
+                  <%= button_to "Achat immediat stripe", checkout_create_path(total: item.price, item_id: item.id),form_class: "contents", class: "flex w-5/6 justify-center rounded-mdtext-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", data: {turbo: false} %>
 
                   <!-- ... bouton stripe ... -->
 
                 
                   <!-- ... BOUTON PANIER ... -->
-                  <%= button_to cart_items_path(item_id: item.id), method: :post,form_class: "contents", class: "flex w-full justify-center rounded-mdtext-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" do %>
+                  <%= button_to cart_items_path(item_id: item.id), method: :post,form_class: "contents", class: "flex w-5/6 justify-center rounded-mdtext-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" do %>
 
                   <svg class="w-3.5 h-3.5 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 21">
                   <path d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z"/>
                   </svg>
                   Ajouter au panier
                   </button>
-
-
                   <% end %>
-
-
-                </div>
-
-                  <!-- ...  INFO SUR UTILISATEUR ETC ... -->
-                <div class=" border-gray-200 flex flex-col justify-start items-start gap-2 mt-8">
-                  <div class="flex justify-start items-start gap-[40px]">
-                      <div class="text-zinc-500 text-xs font-normal font-['Inter'] leading-tight">By:</div>
-                      <div class="text-neutral-900 text-xs font-normal font-['Inter'] leading-tight ">@BlackPanter77</div>
-                  </div>
-
-                  <div class="flex justify-start items-start gap-[40px]">
-                      <div class="text-zinc-500 text-xs font-normal font-['Inter'] leading-tight">Nom du cat:</div>
-                      <div class="text-neutral-900 text-xs font-normal font-['Inter'] leading-tight">Martin Mystere</div>
-                  </div>
-
-                  <div class="flex justify-start items-start gap-[40px]">
-                      <div class="text-zinc-500 text-xs font-normal font-['Inter'] leading-tight text-center">TAGS:</div>
-                      <div class="text-neutral-900 text-xs font-normal font-['Inter'] leading-tight text-center ">poils longs, face, solo cat, promo</div>
-                  </div>
-                </div>
+                </div>                
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
     <!-- ... Description ... -->
-    <div class="h-auto px-40 bg-white flex-col justify-start items-center gap-2 flex">
-      <div class="gap-8 inline-flex">
-          <div class="w-[196px] pr-4 flex-col gap-6 inline-flex">
-              <p class = "font-bold text-lg border-gray-900 border-b max-w-max" >Description<p>
-          </div>
-          <div class="w-[880px] text-gray-700 font-normal" >
+    <div class="h-auto px-6 sm:px-10 md:px-16 lg:px-40 bg-white flex-col justify-start gap-2 flex">
+      <div class="gap-8 ">
+        <div class="w-full sm:w-auto pr-4 flex-col gap-6 sm:inline-flex">
+              <p class = "font-bold text-lg border-gray-900 border-b max-w-max" >Description</p>
+        </div>
+          <div class="w-full sm:w-[80%] lg:w-[70%] text-gray-700 text-lg font-normal leading-[30px]" >
               <p><%= item.description%><p>
                 <!-- ... INFO COMPLEMENTAIRES ... -->
-              <div class="mb-8flex-col gap-3 text-base mt-6">
-                <div class = "font-bold mb-4"> information </div>
+              <div class="mb-8 flex-col gap-3 text-base mt-6">
+                <div class = "font-bold border-gray-900 border-b max-w-max"> information </div>
                   <ul>
                     <li> race : Main coon<li>
                     <li> habitat : interieur<li>
@@ -94,6 +90,4 @@
               </div>
           </div>
       </div>
-  </div>
 </div>
-

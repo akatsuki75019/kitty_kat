@@ -1,2 +1,127 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container mx-auto pt-56">
+  <div>
+    <div class="bg-white relative shadow rounded-lg w-5/6 md:w-5/6  lg:w-4/6 xl:w-3/6 mx-auto">
+      <div class="flex justify-center">
+        <%= image_tag("avatar 3.jpeg", class: "rounded-full mx-auto absolute -top-28 w-40 h-40 shadow-md border-4 border-white object-cover transition duration-200 transform hover:scale-110", alt: "kitten hiding into a jean") %>
+
+      </div>
+
+      <div class="mt-16">
+        <h1 class="font-bold text-center text-3xl text-gray-900">John Doe</h1>
+        <p class="text-center text-sm text-gray-400 font-medium"><%= @user.email %></p>
+        <div class="my-5 px-6 ">
+          <a href="#" class="text-gray-200 block mx-auto w-2/3 rounded-lg text-center font-medium leading-6 px-6 py-3 bg-gray-900 hover:bg-black hover:text-white">Modifier mon avatar</span></a>
+        </div>
+        <div class="flex justify-between items-center my-5 px-6">
+          <a href="" class="text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded transition duration-150 ease-in font-medium text-sm text-center w-full py-3">Facebook</a>
+          <a href="" class="text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded transition duration-150 ease-in font-medium text-sm text-center w-full py-3">Twitter</a>
+          <a href="" class="text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded transition duration-150 ease-in font-medium text-sm text-center w-full py-3">Instagram</a>
+          <a href="" class="text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded transition duration-150 ease-in font-medium text-sm text-center w-full py-3">Email</a>
+        </div>
+
+        <div class="w-full">
+          <div class="">
+            <h3 class="font-medium text-gray-900 text-center px-6">Mes informations</h3>
+          </div>
+
+          <div class="py-3 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6 text-center">
+            <dt class="text-sm font-medium text-gray-500  text-center">Prénom</dt>
+            <div class="flex items-center justify-center">
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 flex-grow">John</dd>
+              <button>
+                <svg xmlns="http://www.w3.org/2000/svg" class="" width="20" height="20" viewBox="0 0 24 24">
+                  <path d="M6.41421 15.89L16.5563 5.74786L15.1421 4.33365L5 14.4758V15.89H6.41421ZM7.24264 17.89H3V13.6474L14.435 2.21233C14.8256 1.8218 15.4587 1.8218 15.8492 2.21233L18.6777 5.04075C19.0682 5.43128 19.0682 6.06444 18.6777 6.45497L7.24264 17.89ZM3 19.89H21V21.89H3V19.89Z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="py-3 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6 text-center">
+            <dt class="text-sm font-medium text-gray-500  text-center">Nom</dt>
+            <div class="flex items-center justify-center">
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 flex-grow">Doe</dd>
+              <button>
+                <svg xmlns="http://www.w3.org/2000/svg" class="" width="20" height="20" viewBox="0 0 24 24">
+                  <path d="M6.41421 15.89L16.5563 5.74786L15.1421 4.33365L5 14.4758V15.89H6.41421ZM7.24264 17.89H3V13.6474L14.435 2.21233C14.8256 1.8218 15.4587 1.8218 15.8492 2.21233L18.6777 5.04075C19.0682 5.43128 19.0682 6.06444 18.6777 6.45497L7.24264 17.89ZM3 19.89H21V21.89H3V19.89Z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="py-3 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6 text-center">
+            <dt class="text-sm font-medium text-gray-500  text-center">Adresse email</dt>
+            <div class="flex items-center justify-center">
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 flex-grow"><%= @user.email %></dd>
+              <button>
+                <svg xmlns="http://www.w3.org/2000/svg" class="" width="20" height="20" viewBox="0 0 24 24">
+                  <path d="M6.41421 15.89L16.5563 5.74786L15.1421 4.33365L5 14.4758V15.89H6.41421ZM7.24264 17.89H3V13.6474L14.435 2.21233C14.8256 1.8218 15.4587 1.8218 15.8492 2.21233L18.6777 5.04075C19.0682 5.43128 19.0682 6.06444 18.6777 6.45497L7.24264 17.89ZM3 19.89H21V21.89H3V19.89Z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="py-3 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6 text-center">
+            <dt class="text-sm font-medium text-gray-500  text-center">Age</dt>
+            <div class="flex items-center justify-center">
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 flex-grow">40 ans</dd>
+              <button>
+                <svg xmlns="http://www.w3.org/2000/svg" class="" width="20" height="20" viewBox="0 0 24 24">
+                  <path d="M6.41421 15.89L16.5563 5.74786L15.1421 4.33365L5 14.4758V15.89H6.41421ZM7.24264 17.89H3V13.6474L14.435 2.21233C14.8256 1.8218 15.4587 1.8218 15.8492 2.21233L18.6777 5.04075C19.0682 5.43128 19.0682 6.06444 18.6777 6.45497L7.24264 17.89ZM3 19.89H21V21.89H3V19.89Z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="py-3 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6 text-center">
+            <dt class="text-sm font-medium text-gray-500  text-center">Téléphone</dt>
+            <div class="flex items-center justify-center">
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 flex-grow">06 38 14 98 10</dd>
+              <button>
+                <svg xmlns="http://www.w3.org/2000/svg" class="" width="20" height="20" viewBox="0 0 24 24">
+                  <path d="M6.41421 15.89L16.5563 5.74786L15.1421 4.33365L5 14.4758V15.89H6.41421ZM7.24264 17.89H3V13.6474L14.435 2.21233C14.8256 1.8218 15.4587 1.8218 15.8492 2.21233L18.6777 5.04075C19.0682 5.43128 19.0682 6.06444 18.6777 6.45497L7.24264 17.89ZM3 19.89H21V21.89H3V19.89Z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="py-3 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6 text-center">
+            <dt class="text-sm font-medium text-gray-500  text-center">Adresse de livraison</dt>
+            <div class="flex items-center justify-center">
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 flex-grow">15 rue de la merguez</dd>
+              <button>
+                <svg xmlns="http://www.w3.org/2000/svg" class="" width="20" height="20" viewBox="0 0 24 24">
+                  <path d="M6.41421 15.89L16.5563 5.74786L15.1421 4.33365L5 14.4758V15.89H6.41421ZM7.24264 17.89H3V13.6474L14.435 2.21233C14.8256 1.8218 15.4587 1.8218 15.8492 2.21233L18.6777 5.04075C19.0682 5.43128 19.0682 6.06444 18.6777 6.45497L7.24264 17.89ZM3 19.89H21V21.89H3V19.89Z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="py-3 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6 text-center">
+            <dt class="text-sm font-medium text-gray-500  text-center">Ville</dt>
+            <div class="flex items-center justify-center">
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 flex-grow">Sauciflard</dd>
+              <button>
+                <svg xmlns="http://www.w3.org/2000/svg" class="" width="20" height="20" viewBox="0 0 24 24">
+                  <path d="M6.41421 15.89L16.5563 5.74786L15.1421 4.33365L5 14.4758V15.89H6.41421ZM7.24264 17.89H3V13.6474L14.435 2.21233C14.8256 1.8218 15.4587 1.8218 15.8492 2.21233L18.6777 5.04075C19.0682 5.43128 19.0682 6.06444 18.6777 6.45497L7.24264 17.89ZM3 19.89H21V21.89H3V19.89Z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="py-3 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6 text-center">
+            <dt class="text-sm font-medium text-gray-500  text-center">Code postal</dt>
+            <div class="flex items-center justify-center">
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 flex-grow">34900</dd>
+              <button>
+                <svg xmlns="http://www.w3.org/2000/svg" class="" width="20" height="20" viewBox="0 0 24 24">
+                  <path d="M6.41421 15.89L16.5563 5.74786L15.1421 4.33365L5 14.4758V15.89H6.41421ZM7.24264 17.89H3V13.6474L14.435 2.21233C14.8256 1.8218 15.4587 1.8218 15.8492 2.21233L18.6777 5.04075C19.0682 5.43128 19.0682 6.06444 18.6777 6.45497L7.24264 17.89ZM3 19.89H21V21.89H3V19.89Z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

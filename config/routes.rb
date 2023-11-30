@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root 'static_pages#index'
   
-  get 'users/show'
   get 'static_pages/index'
 
   resources :orders, only: [:new, :create]
@@ -12,13 +11,16 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
+  get 'users/:id' => 'users#show'
 
   resources :items do
     post 'add_to_cart', on: :member
   end #cette configuration de route crée une route POST spécifique pour l'action add_to_cart qui peut être utilisée pour ajouter un article spécifique au panier. 
 
   resources :carts, only: [:create, :show, :update, :destroy]
-  resources :cart_items, only: [:create, :show, :update, :destroy]
+  resources :cart_items, only: [:create, :update, :destroy]
+
+  get 'contact', to: 'static_pages#contact'
 
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
