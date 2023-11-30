@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end #cette configuration de route crée une route POST spécifique pour l'action add_to_cart qui peut être utilisée pour ajouter un article spécifique au panier. 
 
   resources :carts, only: [:create, :show, :update, :destroy]
-  resources :cart_items, only: [:create, :show, :update, :destroy]
+  resources :cart_items, only: [:create, :update, :destroy]
 
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
