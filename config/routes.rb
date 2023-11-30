@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root 'static_pages#index'
   
-  get 'users/show'
   get 'static_pages/index'
 
   resources :orders, only: [:new, :create]
@@ -12,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
+  get 'users/:id' => 'users#show'
 
   resources :items do
     post 'add_to_cart', on: :member
