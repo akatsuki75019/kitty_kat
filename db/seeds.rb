@@ -24,12 +24,12 @@ team_players.shuffle.each do |player|
 end
 
 #Mon stock d'images celui contenu dans assets/images
-image_array = ["avatar 2.jpeg", "avatar 3.jpeg", "avatar 4.jpeg", "cat .png", "cat 2.jpeg", "cat 3.jpeg", "cat chill.jpeg", "cat reading.jpeg", "cat samurai 1.webp", "cat samurai 2.jpeg", "chat de race.jpeg", "chat long poils.webp", "chat samurai 1.png", "chaton_achat.png", "chaton_sur-dos.jpeg", "christmas_cat_sm.webp", "cute_cat_square.jpeg", "fat_cat.jpg", "funny_cat_sm.jpeg", "kittens.jpeg", "kitty_cat.jpeg", "rock_cat_sm.avif", "sad_cat.jpeg", "Sphynx.webp"]
+image_array = ["avatar 2.jpeg", "avatar 3.jpeg", "avatar 4.jpeg", "cat 2.jpeg", "cat 3.jpeg", "cat chill.jpeg", "cat reading.jpeg", "cat samurai 1.webp", "cat samurai 2.jpeg", "chat de race.jpeg", "chat long poils.webp", "chat samurai 1.png", "chaton_achat.png", "chaton_sur-dos.jpeg", "christmas_cat_sm.webp", "cute_cat_square.jpeg", "fat_cat.jpg", "funny_cat_sm.jpeg", "kittens.jpeg", "rock_cat_sm.avif", "Sphynx.webp"]
 
 # Pour mixer un peu l'ordre des images
 shuffled_images = image_array.shuffle
 
-24.times do |image|
+21.times do |image|
   Item.create(
     title: Faker::Commerce.product_name,
     description: Faker::Lorem.paragraph,
