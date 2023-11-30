@@ -1,12 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
 <!-- <%= link_to "New item", new_item_path %> -->
-<div class="mt-24 mx-16 mb-16">  
+<div class="md:mx-20 md:mt-4">  
   <div class="bg-white py-12">
     <div class="isolate bg-white px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-5xl font-medium tracking-tight text-neutral-900 sm:text-4xl">Pour toujours plus de choix, notre stock est complété quotidiennement.</h2>
-        <p class="mt-2 mb-10 text-lg leading-8 text-gray-600">Nos tous derniers minous 😻😻😻</p>
+        <h2 class="text-3xl md:text-5xl font-medium tracking-tight text-neutral-900">Instant Miaou :</h2>
+        <h2 class="text-3xl md:text-5xl font-medium tracking-tight text-neutral-900">Trouvez des Images de Chats à Acquérir</h2>
+        <p class="mt-2 mb-10 text-lg leading-8 text-gray-600 md:mb-20">Il y en aura pour tous les goûts !</p>
       </div>
       <div class="container mx-auto grid max-w-2xl grid-cols-1 gap-x-1 gap-y-1 pt-3 mt-3 lg:mt-2 lg:pt-2 lg:mx-0 lg:max-w-none md::grid-cols-2 lg:grid-cols-3">
         <% @items.each do |item| %> 
