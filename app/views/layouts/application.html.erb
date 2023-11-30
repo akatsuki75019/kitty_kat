@@ -26,13 +26,16 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
+  <body class="min-h-screen">
 
     <header class="absolute inset-x-0 top-0 z-50">
       <%= render 'layouts/navbar' %>
     </header>
 
       <%= yield %>
+
+      
+    <%= render 'layouts/footer' %>
       
     <% if notice != nil %>
       <%= render 'layouts/toast' %>
