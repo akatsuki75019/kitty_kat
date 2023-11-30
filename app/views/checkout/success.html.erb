@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Thanks for your order!</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <title>Thanks for your order!</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="px-4 mx-auto max-w-7xl md:px-6 pt-32">
+      <div class="text-center">
+        <h3 class=" mb-14 text-6xl font-black ">Commande validée</h3>
+        <div class="w-full flex items-center justify-center mb-5">
+          <%= image_tag("chaton_payment.png", width:"400", height:"500", class: "object-cover", alt: "kitten hiding into a jean")%>
+        </div>
+        <div class="text-start px:0 sm:px-32 lg:pl-52 lg:pr-44 xl:pl-96 xl:pr-80 ">
+          <div class="flex items-center mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M10.007 2.10377C8.60544 1.65006 7.08181 2.28116 6.41156 3.59306L5.60578 5.17023C5.51004 5.35763 5.35763 5.51004 5.17023 5.60578L3.59306 6.41156C2.28116 7.08181 1.65006 8.60544 2.10377 10.007L2.64923 11.692C2.71404 11.8922 2.71404 12.1078 2.64923 12.308L2.10377 13.993C1.65006 15.3946 2.28116 16.9182 3.59306 17.5885L5.17023 18.3942C5.35763 18.49 5.51004 18.6424 5.60578 18.8298L6.41156 20.407C7.08181 21.7189 8.60544 22.35 10.007 21.8963L11.692 21.3508C11.8922 21.286 12.1078 21.286 12.308 21.3508L13.993 21.8963C15.3946 22.35 16.9182 21.7189 17.5885 20.407L18.3942 18.8298C18.49 18.6424 18.6424 18.49 18.8298 18.3942L20.407 17.5885C21.7189 16.9182 22.35 15.3946 21.8963 13.993L21.3508 12.308C21.286 12.1078 21.286 11.8922 21.3508 11.692L21.8963 10.007C22.35 8.60544 21.7189 7.08181 20.407 6.41156L18.8298 5.60578C18.6424 5.51004 18.49 5.35763 18.3942 5.17023L17.5885 3.59306C16.9182 2.28116 15.3946 1.65006 13.993 2.10377L12.308 2.64923C12.1078 2.71403 11.8922 2.71404 11.692 2.64923L10.007 2.10377ZM6.75977 11.7573L8.17399 10.343L11.0024 13.1715L16.6593 7.51465L18.0735 8.92886L11.0024 15.9999L6.75977 11.7573Z" fill="rgba(27,169,127,1)"></path></svg>
+            <h2 class="text-3xl font-bold ml-2 ">Merci !</h2>
+          </div>
+          <p class="text-base -mb-4">Nous vous confirmons la bonne réception du paiement de votre commande : <%= @order_id %> pour un montant de <%= number_to_currency(@payment_intent.amount_received / 100.0, unit: "€", separator: ",", delimiter: "", format: "%n %u")%>.</p><br>
+          <p class="text-base">Vous recevrez par email un récapitulatif de votre commande ainsi qu'un lien pour télécharger votre photo.</p>
+        </div>
+        <div class="flex justify-center mt-10">
+          <a href="/items" class=" w-1/5 min-w-fit rounded-mdtext-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-base p-5 me-2 mb-2 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            <div class="flex">
+              <svg xmlns="http://www.w3.org/2000/svg" class="mx-2" width="30" height="30" viewBox="0 0 24 24"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" fill="rgba(251,251,251,1)"></path></svg>
+              <span class="mr-4 text-xl">Faire de nouveaux achats</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
 
-   <div class="container text-center my-5"> <h1>Succès</h1> 
- <p>Nous avons bien reçu votre paiement de <%= number_to_currency(@payment_intent.amount_received / 100.0, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>.</p> 
- <p>Le statut de votre paiement est : <%= @payment_intent.status %>.</p> 
- <p>Payment Intent ID: <%= @payment_intent.id %></p>
-
- <p>Item ID: <%= @item_id %></p>
-
- 
- 
-<%= link_to "Revenir à l'accueil", root_path, class: "btn btn-secondary" %>
-
-
-</div>
-</body>
+  </body>
 </html>
