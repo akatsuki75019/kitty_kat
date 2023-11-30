@@ -1,4 +1,14 @@
-<p style="color: green"><%= notice %></p>
+<!-- Banner -->
+<div class="relative flex justify-center items-center">
+  <%= image_tag("banner.png", class: "h-96 object-cover w-full", alt: "Little red kitten playing on its back") %>
+  <div class="absolute max-w-7xl text-center w-full px-8 md:px-5 ">
+    <h2 class="text-3xl md:text-5xl font-bold">Capturez l'instant félin :</h2>
+    <h2 class="text-3xl md:text-5xl font-bold">Adoptez cette photo adorable dès maintenant!</h2>
+    <p class="pt-6 text-base max-w-2xl text-center m-auto">
+      Votre dose de câlin virtuel, disponible en un clic ! 
+    </p>
+  </div>
+</div>
 
 <%= render @item %>
 

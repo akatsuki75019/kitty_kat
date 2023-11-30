@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-   
+
     <!-- FLOWBITE MA GUEULE --> 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
 
@@ -28,19 +28,18 @@
 
   <body class="min-h-screen">
 
-    <header class="absolute inset-x-0 top-0 z-50">
+    <!-- À l'avenir retirer absolute pour pas que navbar et reste se chevauche-->
+    <header class="inset-x-0 top-0 z-50">
       <%= render 'layouts/navbar' %>
     </header>
 
-      <%= yield %>
+    <%= yield %>
 
-      
     <%= render 'layouts/footer' %>
-      
+
     <% if notice != nil %>
       <%= render 'layouts/toast' %>
     <% end %>
-  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script> <!-- FLOWBITE MA GUEULE --> 
   </body>
 </html>
