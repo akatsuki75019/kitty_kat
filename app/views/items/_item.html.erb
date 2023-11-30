@@ -1,14 +1,13 @@
 <div class="max-w-screen-xl mx-auto h-46 bg-white flex flex-col justify-start items-center mt-10 py-12 px-4 sm:px-6 lg:px-8">
-  <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
-      <div class="w-auto flex-col inline-flex">
-
+  <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">     
           <!-- ... Image du chat ... -->
-
-        <%# <img class="w-full h-auto object-cover mt-8" src="https://cdn.britannica.com/25/172925-050-DC7E2298/black-cat-back.jpg" /> %>
-        <%= link_to item_path(item.id) do %>
-        <%= image_tag(item.image_url, class: "w-full h-full object-cover", alt: "Description de l'image") %>
-<% end %>
-      </div>
+      <img class="w-auto flex-col inline-flex ">
+        <img class="">
+          <%= link_to item_path(item.id) do %>
+            <%= image_tag(item.image_url, class: "w-full max-h-full object-cover items-baseline", alt: "Description de l'image") %>
+          <% end %>
+        </img>
+      </img>
       <!-- ... PARTIE DROITE ... -->
       <div class="flex flex-col justify-evenly mt-8">
         <!-- ...ITEMS/NAVCRUB ... -->
@@ -21,7 +20,7 @@
               <p><%= item.description%><p>
           </div>
           <div class="h-auto flex-col mt-10"> 
-            <div class ="text-xl"> <strong> <%= item.price %> €  </strong></div>
+            <div class ="text-xl"> <strong> <%= item.price %>  € </strong></div>
           </div>          
                                 <!-- ...  INFO SUR UTILISATEUR ETC ... -->
           <div class=" py-6 border-t border-white border-opacity-0 flex-col ">
@@ -70,16 +69,16 @@
         </div>
       </div>
     <!-- ... Description ... -->
-    <div class="h-auto px-40 bg-white flex-col justify-start items-center gap-2 flex">
-      <div class="gap-8 inline-flex">
-          <div class="w-[196px] pr-4 flex-col gap-6 inline-flex">
-              <p class = "font-bold text-lg border-gray-900 border-b max-w-max" >Description<p>
-          </div>
-          <div class="w-[880px] text-gray-700 font-normal" >
+    <div class="h-auto px-6 sm:px-10 md:px-16 lg:px-40 bg-white flex-col justify-start gap-2 flex">
+      <div class="gap-8 ">
+        <div class="w-full sm:w-auto pr-4 flex-col gap-6 sm:inline-flex">
+              <p class = "font-bold text-lg border-gray-900 border-b max-w-max" >Description</p>
+        </div>
+          <div class="w-full sm:w-[80%] lg:w-[70%] text-gray-700 text-lg font-normal leading-[30px]" >
               <p><%= item.description%><p>
                 <!-- ... INFO COMPLEMENTAIRES ... -->
-              <div class="mb-8flex-col gap-3 text-base mt-6">
-                <div class = "font-bold mb-4"> information </div>
+              <div class="mb-8 flex-col gap-3 text-base mt-6">
+                <div class = "font-bold border-gray-900 border-b max-w-max"> information </div>
                   <ul>
                     <li> race : Main coon<li>
                     <li> habitat : interieur<li>
@@ -89,6 +88,4 @@
               </div>
           </div>
       </div>
-  </div>
 </div>
-
