@@ -5,7 +5,7 @@ class CartItemsController < ApplicationController
 
     item = Item.find(params.fetch(:item_id, nil))
     result = current_user.cart.add_item(item)
-    # OrderMailer.order_notification(current_user, @order).deliver_now
+    #OrderMailer.order_notification(current_user, @order).deliver_now
     
     if result.is_a?(CartItem) 
       redirect_to items_path, notice: "Item ajouté au panier avec succès"

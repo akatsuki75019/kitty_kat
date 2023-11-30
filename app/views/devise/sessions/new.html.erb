@@ -2,7 +2,7 @@
 
 <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 h-screen">
   <div class="flex-col justify-center items-center inline-flex">
-    <div class="w-48 h-48 rounded-full mx-auto overflow-hidden flex items-center inline-flex">
+    <div class="w-48 h-48 rounded-full mx-auto overflow-hidden flex items-center">
       <%= image_tag("avatar 2.jpeg", class: "w-full h-full object-cover rounded-full", alt: "kitten hiding into a jean")%>
     </div>
     <h2 class="mt-2 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">De retour ?</h2>
@@ -32,13 +32,13 @@
 			<div class="flex items-start mb-5">
     		<div class="flex items-center h-5">
 					<input name="user[remember_me]" type="hidden" value="0" autocomplete="off">
-      		<input id="remember" name="user[remember_me]" type="checkbox" value="1" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800">
+      		<input id="remember" name="user[remember_me]" type="checkbox" value="1" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 ">
     		</div>
-    			<label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Se rappeler de moi</label>
+    			<label for="remember" class="ms-2 text-sm font-medium text-gray-900 ">Se rappeler de moi</label>
   		</div>
 
       <div>
-        <button type="submit" class="flex w-full justify-center rounded-mdtext-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Connexion</button>
+        <button type="submit" class="flex w-full justify-center rounded-mdtext-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2  text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Connexion</button>
       </div>
     </form>
 
