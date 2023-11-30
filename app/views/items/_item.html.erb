@@ -5,7 +5,9 @@
           <!-- ... Image du chat ... -->
 
         <%# <img class="w-full h-auto object-cover mt-8" src="https://cdn.britannica.com/25/172925-050-DC7E2298/black-cat-back.jpg" /> %>
-        <%= (image_tag("#{item.image_url}", class: "w-full h-full object-cover", alt: "cat picture item here to sell"), item_path(item.id)) %> 
+        <%= link_to item_path(item.id) do %>
+        <%= image_tag(item.image_url, class: "w-full h-full object-cover", alt: "Description de l'image") %>
+<% end %>
       </div>
       <!-- ... PARTIE DROITE ... -->
       <div class="flex flex-col justify-evenly mt-8">
