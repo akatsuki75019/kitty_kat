@@ -58,16 +58,11 @@
                   <!-- ... BOUTON PANIER ... -->
 
                   <!-- ... Champ de saisie de la quantité ... -->
-               <%= form_with(url: cart_items_path, method: :post, local: true) do |form| %>
-  <%= form.hidden_field :item_id, value: item.id %>
-  <div class="h-auto py-6 border-t border-gray-200 flex-col">
-    <div class="self-stretch h-15 flex-col justify-start items-start flex">
+    
       <!-- ... bouton stripe ... -->
 
       <!-- ... Champ de saisie de la quantité ... -->
-      <%= form.number_field :quantity, class: "w-12 px-2 py-4 text-center border-0 rounded-md dark:bg-gray-800 md:text-center", placeholder: "1", value: 1 %>
-
-
+                 
 
                   <%= button_to cart_items_path(item_id: item.id), method: :post,form_class: "contents", class: "flex w-5/6 justify-center rounded-mdtext-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" do %>
 
@@ -75,11 +70,23 @@
                   <path d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z"/>
                   </svg>
                   Ajouter au panier
+                  
                   </button>
+                  <%= form_with(url: cart_items_path, method: :post, local: true) do |form| %>
+                      <%= form.hidden_field :item_id, value: item.id %>
+
+                      <div class="flex items-center">
+                        <%= label_tag :quantity, "Quantité", class: "mr-2" %>
+                        <%= form.number_field :quantity, class: "w-12 px-2 py-4 text-center border-0 rounded-md dark:bg-gray-800 md:text-center", placeholder: "1", value: 1 %>
+                      </div>
+                    <% end %>
                   <% end %>
+                    
+
+                
                 </div>                
               </div>
-              <% end %>
+              
             </div>
           </div>
         </div>
