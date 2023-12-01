@@ -24,7 +24,9 @@
 
           <% total = 0 %>
           <% @cart_items.each do |cart_item| %>
-          <% total += cart_item.item.price %>
+          <% if cart_item.item.present? && cart_item.quantity.present? %>
+             <% total += cart_item.item.price * cart_item.quantity %>
+          <% end %>
           <div class="py-4 mb-8 border-t border-b border-gray-200 dark:border-gray-700"> 
             <div class="flex flex-wrap items-center -mx-4 ">
               <div class="w-full px-4 mb-6 md:w-4/6 lg:w-6/12 md:mb-0">
@@ -46,24 +48,26 @@
               <div class="hidden px-4 lg:block lg:w-2/12 text-center">
                 <p class="text-lg font-semibold"><%= cart_item.item.price %> €</p>
               </div>
-              <div class="w-auto px-4 md:w-1/6 lg:w-2/12 text-center">
-                <div class="inline-flex items-center px-4 font-semibold text-gray-500 border border-gray-200 rounded-md dark:border-gray-700">
-                  <button class="py-2 hover:text-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
-                      <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
-                    </svg>
-                  </button>
-                  <input type="number" class="w-12 px-2 py-4 text-center border-0 rounded-md dark:bg-gray-800 md:text-center" placeholder="1">
-                  <button class="py-2 hover:text-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-                      <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                    </svg>
-                  </button>
-                </div>
+             <!-- Ajoutez ces lignes dans la boucle @cart_items.each -->
+            <div class="w-auto px-4 md:w-1/6 lg:w-2/12 text-center">
+              <div class="inline-flex items-center px-4 font-semibold text-gray-500 border border-gray-200 rounded-md dark:border-gray-700">
+                <button class="py-2 hover:text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+                  </svg>
+                </button>
+                <input type="number" value="<%= cart_item.quantity %>" class="w-12 px-2 py-4 text-center border-0 rounded-md dark:bg-gray-800 md:text-center" placeholder="1" disabled>
+                <button class="py-2 hover:text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                  </svg>
+                </button>
               </div>
-              <div class="w-auto px-4 text-right md:w-1/6 lg:w-2/12 ">
-                <p class="text-lg font-bold"><%= cart_item.item.price %> €</p>
-              </div>
+            </div>
+            <div class="w-auto px-4 text-right md:w-1/6 lg:w-2/12 ">
+              <p class="text-lg font-bold"><%= cart_item.item.price * cart_item.quantity %> €</p>
+            </div>
+
             </div>
           </div>
         <% end %>
@@ -90,7 +94,7 @@
 
 <!-- ... bouton stripe ... -->
             
-              <%= button_to "Confirmer la commande et payer", checkout_create_path(total: @cart_items.sum { |cart_item| cart_item.item.price }), class: "inline-block w-full px-8 py-4 font-bold text-center text-white uppercase transition duration-200 bg-gray-800 rounded-md md:w-auto hover:bg-gray-900", data: { turbo: false } %>
+        <%= button_to "Confirmer la commande et payer", checkout_create_path(total: @cart_items.sum { |cart_item| cart_item.item.price * cart_item.quantity }), class: "inline-block w-full px-8 py-4 font-bold text-center text-white uppercase transition duration-200 bg-gray-800 rounded-md md:w-auto hover:bg-gray-900", data: { turbo: false } %>
 
 <!-- ... bouton stripe ... -->
             
